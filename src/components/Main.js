@@ -1,65 +1,91 @@
-import React, {useState, useContext,useNavigate} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import './Main.css';
 import Event from './Event/Event';
-import { GlobalContext } from '../context/GlobalState';
+import { View } from './view';
+const getDatafromLS=()=>{
+    const data = localStorage.getItem('events');
+    if(data){
+        return JSON.parse(data);
+    }
+    else{
+        return []
+    }
+}
 const Main = () => {
     // hooks
     const [event, setName]=useState('');
     const [time, setTime]=useState('');
-    const { addEvent }=useContext(GlobalContext);
-    const { events }=useContext(GlobalContext);
-    
+    const [place, setPlace]=useState('');
+    const [date, setDate]=useState('');
+    const [day, setDay]=useState('');
+    const [events, setevent]=useState(getDatafromLS());
     const onSubmit = e =>{
         e.preventDefault();
-        const newEvent = {
-            id: Math.floor(Math.random() * 100000000),
+        let newEvent = {
+            id:Math.floor(Math.random()*100000), 
             event,
-            time
+            time,
+            place,
+            date,
+            day
         }
-        addEvent(newEvent);
+        setevent([...events,newEvent]);
         setName('');
         setTime('');
+        setPlace('');
+        setDate('');
+        setDay('');
     }
-    let AddEvent = ()=>{
-        let navigate = useNavigate();
-        let [state,setState] = useState({
-            loading: false,
-            event : {
-                "name": "",
-                "time": "",
-                "groupId": ""
-            },
-            groups : [],
-            errorMessage : ''
-        });
-        let updateInput = (event)=>{
-            setState({
-                ...state,
-                event: {
-                    ...state.event,
-                    [event.target.name] : event.target.value
-                }
-            });
-        };
+    const deleteevent=(id)=>{
+        const filteredeve=events.filter((element,index)=>{
+            return element.id !== id
+        })
+        setevent(filteredeve);
     }
+    useEffect(()=>{localStorage.setItem('events',JSON.stringify(events));},[events])
     return (
         <div class="Content">
             <div class="Header">
                 <div class="Layer">
-                    Events
+                    List your events here
                 </div>
             </div>
             <div class="Body">
-                <ul class="Events">
+                <ul class="events">
                     {events.map(item => (<Event key={item.id} item={item} />))}
                 </ul>
                 <div class="AddEvent">
                     <form onSubmit={onSubmit}>
                         <input class="eventName" value={event} onChange={(e) => setName(e.target.value)} type="text" placeholder="Enter the event you want to add"></input>
                         <input class="eventTime" value={time} onChange={(e) => setTime(e.target.value)}type="text" placeholder="Time"></input>
+                        <input class="eventPlace" value={place} onChange={(e) => setPlace(e.target.value)}type="text" placeholder="Place"></input>
+                        <input class="eventDate" value={date} onChange={(e) => setDate(e.target.value)}type="text" placeholder="Date"></input>
+                        <input class="eventDay" value={day} onChange={(e) => setDay(e.target.value)}type="text" placeholder="Day"></input>
                         <button class="submit">Add Event</button>
                     </form>
                 </div>
+                <div className='view-container'>
+                {events.length>0&&<>
+                <div className='table_div'>
+                <table className='table'>
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Time</th>
+                        <th>Place</th>
+                        <th>Date</th>
+                        <th>Day</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <View events={events} deleteevent={deleteevent}/>
+                    </tbody>
+                </table>
+                </div>
+                <button className='btn btn-danger btn-md'onClick={()=>setevent([])}>Remove All</button>
+            </>}
+            {events.length < 1 && <div>No events are added yet</div>}
+            </div>
             </div>
         </div>
     );
