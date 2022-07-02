@@ -4,33 +4,31 @@
     margin: 1% auto 0;
     height: 500px;
     border-radius: 50px;
-    border-color: teal;
     border-width: 10px;
 }
 
 .Header {
-    background: #ffffff url("https://cdn.wallpapersafari.com/54/88/IlAmqU.jpg") center center no-repeat;
+    background: url("https://cdn.wallpapersafari.com/15/2/OdZ3eu.jpg");
     width: 100%;
     height: 100px;
-    background-size: cover;
+    background-size: 100%;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 }
 
 .Layer {
-    color: white;
+    color: whitesmoke;
     text-decoration: dashed;
     font-size: 50px;
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
-    text-shadow: 10px 10px red;
-    padding: 5px 0;
+    padding: 20px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 }
 .Body {
-    background-image: url("https://cdn.wallpapersafari.com/90/15/2wN9yx.jpg");
+    background-image: url("https://media.istockphoto.com/photos/glitter-vintage-lights-abstract-background-new-year-holiday-silver-picture-id1178183406?b=1&k=20&m=1178183406&s=170667a&w=0&h=PWrZuXQuDCz9ZvIKAf4dWYOydWDx2tIuiDw254d9Oj0=");
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     padding: 10px;
@@ -48,39 +46,79 @@
     margin: 10px;
 }
 
-.Content .Body .Events li{
-    padding:  20px;
+.Content .Body .events li{
+    padding:  15px;
     border-bottom: 1px solid #ddd;
     display: flex;
 }
 
-.Content .Body .Events li .Event {
-    width: 100%;
+.Content .Body .events li .Event {
+    width:20%;
     color: black;
     font-size: 20px;
     font-weight: bolder;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-transform: uppercase;
 }
-
-.Content .Body .Events li .Time{
+.Content .Body .events li .Time{
     text-align: center;
-    width: 10%;
+    width:20%;
     color: black;
     font-size: 20px;
     font-weight: bolder;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-transform: uppercase;
 }
-
-
-.Content .Body .Events li .Action {
-    color: red;
+.Content .Body .events li .Number{
     text-align: center;
-    width: 10%;
-    font-size: 30px;
+    width:20%;
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+}
+.Content .Body .events li .Place{
+    text-align: center;
+    width:20%;
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+}
+.Content .Body .events li .Date{
+    text-align: center;
+    width:20%;
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+}
+.Content .Body .events li .Day{
+    text-align: center;
+    width:20%;
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+}
+.Content .Body .events li .Mail {
+    color: black;
+    text-align: center;
+    width:20%;
+    font-size: 15px;
     cursor:pointer;
     font-weight: bolder;
+    border-radius: 10px;
+    margin: 2px;
+}
+.Content .Body .events li .Mail:hover{
+    cursor: pointer;
+    color: white;
+    background-color: red;
 }
 .AddEvent {
     width: 100%;
@@ -94,22 +132,36 @@
 }
 .Content .Body .AddEvent input[type="text"] {
     display: block;
-    font-size: 20px;
-    padding: 5px;
+    font-size: 15px;
     color: #000;
 }
 .eventName{
-    width: 33%;
+    width:20%;
+    border: 5px solid black;
+    margin: 5px;
+}
+.eventPlace{
+    width:20%;
     border: 5px solid black;
     margin: 5px;
 }
 .eventTime{
-    width: 33%;
+    width:20%;
+    border: 5px solid black;
+    margin: 5px;
+}
+.eventDate{
+    width:20%;
+    border: 5px solid black;
+    margin: 5px;
+}
+.eventDay{
+    width:20%;
     border: 5px solid black;
     margin: 5px;
 }
 .submit {
-    width: 33%;
+    width:20%;
     background-color: white;
     margin: 5px;
     padding: 10px;
@@ -117,12 +169,11 @@
 }
 .submit:hover{
     cursor: pointer;
-    text-transform: uppercase;
     color: white;
     background-color: #000;
 }
 input[type="text"]::placeholder {
-                 
     /* Firefox, Chrome, Opera */
     text-align: center;
+    font-size: 10px;
 }
