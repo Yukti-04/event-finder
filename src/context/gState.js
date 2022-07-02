@@ -7,8 +7,6 @@ const initialState={
 }
 export const GlobalContext = createContext(initialState);
 
-// provider which provides access to the state
-
 export const GlobalProvider =({children}) => {
     const [state, dispatch] =useReducer(aReducer, initialState); //dispatch will store event type,data type and action type 
 
