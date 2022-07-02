@@ -1,14 +1,14 @@
-import React, {useContext} from 'react';
-import { GlobalContext } from '../../context/gState';
+import React from 'react';
 
 const Event = ({ item }) => {
-    const { deleteEvent } = useContext(GlobalContext);
-
     return (
         <li>
             <span className="Event">{item.event}</span>
             <span className="Time">{item.time}</span>
-            <span className="Action" onClick={() => deleteEvent(item.id)}>&#10007;</span>
+            <span className="Place">{item.place}</span>
+            <span className="Date">{item.date}</span>
+            <span className="Day">{item.day}</span>
+            <button className="Mail">Email and Update</button>
         </li>
     );
 }
