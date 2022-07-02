@@ -16,18 +16,10 @@ export const GlobalProvider =({children}) => {
             payload: event
         })
     }
-
-    function deleteEvent(id){
-        dispatch({
-            type: 'DELETE_EVENT',
-            payload: id
-        })
-    }
     return(
         <GlobalContext.Provider value={{
             events: state.events,
             addEvent,
-            deleteEvent
         }}>
             {children}
         </GlobalContext.Provider>
